@@ -9,7 +9,7 @@ const not_found = require('./Middlewares/not_found');
 
 
 app.use(express.json());
-
+app.use(express.static('./public'));
 app.use('/api/v1/products', productsRouter);
 //Middlewares
 app.use(not_found);
