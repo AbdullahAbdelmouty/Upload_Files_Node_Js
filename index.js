@@ -4,15 +4,16 @@ const connectDB = require('./DB/connect');
 const express = require('express');
 const app = express();
 const productsRouter = require('./Routers/productRouters');
-// const notFoundMiddleware = require('./middleware/not-found');
-// const errorHandlerMiddleware = require('./middleware/error-handler');
+const error_handler = require('./Middlewares/error_handler');
+const not_found = require('./Middlewares/not_found');
+
 
 app.use(express.json());
 
 app.use('/api/v1/products', productsRouter);
-
-// app.use(notFoundMiddleware);
-// app.use(errorHandlerMiddleware);
+//Middlewares
+app.use(not_found);
+app.use(error_handler);
 const port = process.env.PORT || 3000;
 const start = async () => {
     try {
