@@ -16,6 +16,7 @@ uploadInput.addEventListener('change',async (e)=>{
       }
      })
      imageValue = src
+     console.log(imageValue);
     } catch (error) {
       imageValue = null
      console.log(error);
